@@ -1,0 +1,253 @@
+<?xml version='1.0' encoding='utf-8'?>
+<MixxxControllerPreset mixxxVersion="2.1+" schemaVersion="1">
+    <info>
+        <name>Vestax VCI-400 Alternative</name>
+        <author>Felix Hennig, Owen Williams, Tobias Rafreider</author>
+        <description>Controller mapping for Vestax VCI-400</description>
+        <forums>TODO</forums>
+        <wiki>http://mixxx.org/wiki/doku.php/vestax_vci-400</wiki>
+    </info>
+    <controller id="Vestax">
+        <scriptfiles>
+            <file filename="lodash.mixxx.js"/>
+            <file filename="midi-components-0.0.js"/>
+            <file functionprefix="VCI400" filename="Vestax-VCI-400_alternative-scripts.js"/>
+        </scriptfiles>
+        <controls>
+            
+            <!-- Generic interface controls -->
+            
+            <control><key>VCI400.scrollKnobButton.input</key><status>0x9E</status><midino>0x71</midino><options><script-binding/></options></control>
+            <control><group>[Library]</group><key>MoveVertical</key><status>0xBE</status><midino>0x28</midino><options><selectknob/></options></control>
+            <control><key>VCI400.shiftActivate</key><status>0x90</status><midino>0x01</midino><options><script-binding/></options></control>
+            <control><group>[Master]</group><key>gain</key><status>0xBE</status><midino>0x2B</midino></control>
+            <control><group>[Master]</group><key>crossfader</key><status>0xB0</status><midino>0x14</midino><options><normal/></options></control>
+            <!-- Cue/Master mix.  the head gain knob doesn't send any midi signals -->
+            <control><group>[Master]</group><key>headMix</key><status>0xBE</status><midino>0x2A</midino></control>
+            <control><key>VCI400.waveformZoom</key><status>0xBE</status><midino>0x27</midino><options><script-binding/></options></control>
+
+            <!-- beatgrid adjust buttons -->
+            <control><key>VCI400.leftBottomSection.beatsTranslateCurPosButton.input</key><status>0x9E</status><midino>0x6B</midino><options><script-binding/></options></control>
+            <control><key>VCI400.rightBottomSection.beatsTranslateCurPosButton.input</key><status>0x9E</status><midino>0x6C</midino><options><script-binding/></options></control>
+            <control><key>VCI400.leftBottomSection.beatsTranslateMatchAlignmentButton.input</key><status>0x9E</status><midino>0x6D</midino><options><script-binding/></options></control>
+            <control><key>VCI400.rightBottomSection.beatsTranslateMatchAlignmentButton.input</key><status>0x9E</status><midino>0x6E</midino><options><script-binding/></options></control>
+
+            <!-- Mixers and Faders -->
+
+            <!-- Sync -->
+            <control><key>VCI400.channelA.syncButton.input</key><status>0x92</status><midino>0x01</midino><options><script-binding/></options></control>
+            <control><key>VCI400.channelB.syncButton.input</key><status>0x93</status><midino>0x01</midino><options><script-binding/></options></control>
+            <control><key>VCI400.channelC.syncButton.input</key><status>0x94</status><midino>0x01</midino><options><script-binding/></options></control>
+            <control><key>VCI400.channelD.syncButton.input</key><status>0x95</status><midino>0x01</midino><options><script-binding/></options></control>
+            <!-- Load Track -->
+            <control><key>VCI400.channelA.loadButton.input</key><status>0x92</status><midino>0x02</midino><options><script-binding/></options></control>
+            <control><key>VCI400.channelB.loadButton.input</key><status>0x93</status><midino>0x02</midino><options><script-binding/></options></control>
+            <control><key>VCI400.channelC.loadButton.input</key><status>0x94</status><midino>0x02</midino><options><script-binding/></options></control>
+            <control><key>VCI400.channelD.loadButton.input</key><status>0x95</status><midino>0x02</midino><options><script-binding/></options></control>
+            <!-- Channel volume faders. LSB and MSB for each fader. -->
+            <control><group>[Channel1]</group><key>volume</key><status>0xB2</status><midino>0x31</midino><options><fourteen-bit-lsb/></options></control>
+            <control><group>[Channel1]</group><key>volume</key><status>0xB2</status><midino>0x11</midino><options><fourteen-bit-msb/></options></control>
+            <control><group>[Channel2]</group><key>volume</key><status>0xB3</status><midino>0x31</midino><options><fourteen-bit-lsb/></options></control>
+            <control><group>[Channel2]</group><key>volume</key><status>0xB3</status><midino>0x11</midino><options><fourteen-bit-msb/></options></control>
+            <control><group>[Channel3]</group><key>volume</key><status>0xB4</status><midino>0x31</midino><options><fourteen-bit-lsb/></options></control>
+            <control><group>[Channel3]</group><key>volume</key><status>0xB4</status><midino>0x11</midino><options><fourteen-bit-msb/></options></control>
+            <control><group>[Channel4]</group><key>volume</key><status>0xB5</status><midino>0x31</midino><options><fourteen-bit-lsb/></options></control>
+            <control><group>[Channel4]</group><key>volume</key><status>0xB5</status><midino>0x11</midino><options><fourteen-bit-msb/></options></control>
+            <!-- Channel Mixers -->
+            <!-- EQ Low -->
+            <control><group>[EqualizerRack1_[Channel1]_Effect1]</group><key>parameter1</key><status>0xB2</status><midino>0x0F</midino></control>
+            <control><group>[EqualizerRack1_[Channel2]_Effect1]</group><key>parameter1</key><status>0xB3</status><midino>0x0F</midino></control>
+            <control><group>[EqualizerRack1_[Channel3]_Effect1]</group><key>parameter1</key><status>0xB4</status><midino>0x0F</midino></control>
+            <control><group>[EqualizerRack1_[Channel4]_Effect1]</group><key>parameter1</key><status>0xB5</status><midino>0x0F</midino></control>
+            <!-- EQ Mid -->
+            <control><group>[EqualizerRack1_[Channel1]_Effect1]</group><key>parameter2</key><status>0xB2</status><midino>0x0E</midino></control>
+            <control><group>[EqualizerRack1_[Channel2]_Effect1]</group><key>parameter2</key><status>0xB3</status><midino>0x0E</midino></control>
+            <control><group>[EqualizerRack1_[Channel3]_Effect1]</group><key>parameter2</key><status>0xB4</status><midino>0x0E</midino></control>
+            <control><group>[EqualizerRack1_[Channel4]_Effect1]</group><key>parameter2</key><status>0xB5</status><midino>0x0E</midino></control>
+            <!-- EQ High -->
+            <control><group>[EqualizerRack1_[Channel1]_Effect1]</group><key>parameter3</key><status>0xB2</status><midino>0x0D</midino></control>
+            <control><group>[EqualizerRack1_[Channel2]_Effect1]</group><key>parameter3</key><status>0xB3</status><midino>0x0D</midino></control>
+            <control><group>[EqualizerRack1_[Channel3]_Effect1]</group><key>parameter3</key><status>0xB4</status><midino>0x0D</midino></control>
+            <control><group>[EqualizerRack1_[Channel4]_Effect1]</group><key>parameter3</key><status>0xB5</status><midino>0x0D</midino></control>
+            <!-- Pregain -->
+            <control><group>[Channel1]</group><key>pregain</key><status>0xB2</status><midino>0x0C</midino></control>
+            <control><group>[Channel2]</group><key>pregain</key><status>0xB3</status><midino>0x0C</midino></control>
+            <control><group>[Channel3]</group><key>pregain</key><status>0xB4</status><midino>0x0C</midino></control>
+            <control><group>[Channel4]</group><key>pregain</key><status>0xB5</status><midino>0x0C</midino></control>
+            <!-- PFL -->
+            <control><group>[Channel1]</group><key>pfl</key><status>0x92</status><midino>0x05</midino><options><normal/></options></control>
+            <control><group>[Channel2]</group><key>pfl</key><status>0x93</status><midino>0x05</midino><options><normal/></options></control>
+            <control><group>[Channel3]</group><key>pfl</key><status>0x94</status><midino>0x05</midino><options><normal/></options></control>
+            <control><group>[Channel4]</group><key>pfl</key><status>0x95</status><midino>0x05</midino><options><normal/></options></control>
+            <!-- FX 1/2 toggle -->
+            <control><group>[EffectRack1_EffectUnit1]</group><key>group_[Channel1]_enable</key><status>0x92</status><midino>0x03</midino></control>
+            <control><group>[EffectRack1_EffectUnit2]</group><key>group_[Channel1]_enable</key><status>0x92</status><midino>0x04</midino></control>
+            <control><group>[EffectRack1_EffectUnit1]</group><key>group_[Channel2]_enable</key><status>0x93</status><midino>0x03</midino></control>
+            <control><group>[EffectRack1_EffectUnit2]</group><key>group_[Channel2]_enable</key><status>0x93</status><midino>0x04</midino></control>
+            <control><group>[EffectRack1_EffectUnit1]</group><key>group_[Channel3]_enable</key><status>0x94</status><midino>0x03</midino></control>
+            <control><group>[EffectRack1_EffectUnit2]</group><key>group_[Channel3]_enable</key><status>0x94</status><midino>0x04</midino></control>
+            <control><group>[EffectRack1_EffectUnit1]</group><key>group_[Channel4]_enable</key><status>0x95</status><midino>0x03</midino></control>
+            <control><group>[EffectRack1_EffectUnit2]</group><key>group_[Channel4]_enable</key><status>0x95</status><midino>0x04</midino></control>
+            <!-- Filter -->
+            <control><group>[QuickEffectRack1_[Channel1]]</group><key>super1</key><status>0xB2</status><midino>0x10</midino></control>
+            <control><group>[QuickEffectRack1_[Channel2]]</group><key>super1</key><status>0xB3</status><midino>0x10</midino></control>
+            <control><group>[QuickEffectRack1_[Channel3]]</group><key>super1</key><status>0xB4</status><midino>0x10</midino></control>
+            <control><group>[QuickEffectRack1_[Channel4]]</group><key>super1</key><status>0xB5</status><midino>0x10</midino></control>
+            
+            
+            
+            <!-- Playback rate -->
+            <control><group>[Channel1]</group><key>rate</key><status>0xB2</status><midino>0x32</midino><options><soft-takeover/><fourteen-bit-lsb/></options></control>
+            <control><group>[Channel1]</group><key>rate</key><status>0xB2</status><midino>0x12</midino><options><soft-takeover/><fourteen-bit-msb/></options></control>
+            <control><group>[Channel2]</group><key>rate</key><status>0xB3</status><midino>0x32</midino><options><soft-takeover/><fourteen-bit-lsb/></options></control>
+            <control><group>[Channel2]</group><key>rate</key><status>0xB3</status><midino>0x12</midino><options><soft-takeover/><fourteen-bit-msb/></options></control>
+            <control><group>[Channel3]</group><key>rate</key><status>0xB4</status><midino>0x32</midino><options><soft-takeover/><fourteen-bit-lsb/></options></control>
+            <control><group>[Channel3]</group><key>rate</key><status>0xB4</status><midino>0x12</midino><options><soft-takeover/><fourteen-bit-msb/></options></control>
+            <control><group>[Channel4]</group><key>rate</key><status>0xB5</status><midino>0x32</midino><options><soft-takeover/><fourteen-bit-lsb/></options></control>
+            <control><group>[Channel4]</group><key>rate</key><status>0xB5</status><midino>0x12</midino><options><soft-takeover/><fourteen-bit-msb/></options></control>
+            
+
+            
+            <!-- Deck controls -->
+            <!-- left Deck is 0x92, right Deck is 0x93 -->
+            <!-- The bottom sections are not affected by the hardware "DECK SELECT" switch" -->
+            <!-- Play Button -->
+            <control><key>VCI400.leftBottomSection.playButton.input </key><status>0x92</status><midino>0x1A</midino><options><script-binding/></options></control>
+            <control><key>VCI400.rightBottomSection.playButton.input</key><status>0x93</status><midino>0x1A</midino><options><script-binding/></options></control>
+            <!-- Cue Button -->
+            <control><key>VCI400.leftBottomSection.cueButton.input </key><status>0x92</status><midino>0x19</midino><options><script-binding/></options></control>
+            <control><key>VCI400.rightBottomSection.cueButton.input</key><status>0x93</status><midino>0x19</midino><options><script-binding/></options></control>
+            <!-- looping -->
+            <control><key>VCI400.leftBottomSection.loopInButton.input</key><status>0x94</status><midino>0x1B</midino><options><script-binding/></options></control>
+            <control><key>VCI400.leftBottomSection.loopOutButton.input</key><status>0x94</status><midino>0x1C</midino><options><script-binding/></options></control>
+            <control><key>VCI400.leftBottomSection.loopDefaultButton.input</key><status>0x94</status><midino>0x1D</midino><options><script-binding/></options></control>
+            <control><key>VCI400.leftBottomSection.loopExitButton.input</key><status>0x94</status><midino>0x1E</midino><options><script-binding/></options></control>
+            <control><key>VCI400.rightBottomSection.loopDefaultButton.input</key><status>0x95</status><midino>0x1B</midino><options><script-binding/></options></control>
+            <control><key>VCI400.rightBottomSection.loopExitButton.input</key><status>0x95</status><midino>0x1C</midino><options><script-binding/></options></control>
+            <control><key>VCI400.rightBottomSection.loopInButton.input</key><status>0x95</status><midino>0x1D</midino><options><script-binding/></options></control>
+            <control><key>VCI400.rightBottomSection.loopOutButton.input</key><status>0x95</status><midino>0x1E</midino><options><script-binding/></options></control>
+            <!-- deck select switch -->
+            <control><key>VCI400.leftBottomSection.deckSelect </key><status>0x92</status><midino>0x22</midino><options><script-binding/></options></control>
+            <control><key>VCI400.rightBottomSection.deckSelect</key><status>0x93</status><midino>0x22</midino><options><script-binding/></options></control>
+            
+            <!-- Hotcue Buttons on the 8 Pad buttons -->
+            <control><key>VCI400.channelA.hotcue1Button.input</key><status>0x92</status><midino>0x07</midino><options><script-binding/></options></control>
+            <control><key>VCI400.channelA.hotcue2Button.input</key><status>0x92</status><midino>0x08</midino><options><script-binding/></options></control>
+            <control><key>VCI400.channelA.hotcue3Button.input</key><status>0x92</status><midino>0x09</midino><options><script-binding/></options></control>
+            <control><key>VCI400.channelA.hotcue4Button.input</key><status>0x92</status><midino>0x0A</midino><options><script-binding/></options></control>
+            <control><key>VCI400.channelA.hotcue5Button.input</key><status>0x92</status><midino>0x0B</midino><options><script-binding/></options></control>
+            <control><key>VCI400.channelA.hotcue6Button.input</key><status>0x92</status><midino>0x0C</midino><options><script-binding/></options></control>
+            <control><key>VCI400.channelA.hotcue7Button.input</key><status>0x92</status><midino>0x0D</midino><options><script-binding/></options></control>
+            <control><key>VCI400.channelA.hotcue8Button.input</key><status>0x92</status><midino>0x0E</midino><options><script-binding/></options></control>
+            <control><key>VCI400.channelB.hotcue1Button.input</key><status>0x93</status><midino>0x07</midino><options><script-binding/></options></control>
+            <control><key>VCI400.channelB.hotcue2Button.input</key><status>0x93</status><midino>0x08</midino><options><script-binding/></options></control>
+            <control><key>VCI400.channelB.hotcue3Button.input</key><status>0x93</status><midino>0x09</midino><options><script-binding/></options></control>
+            <control><key>VCI400.channelB.hotcue4Button.input</key><status>0x93</status><midino>0x0A</midino><options><script-binding/></options></control>
+            <control><key>VCI400.channelB.hotcue5Button.input</key><status>0x93</status><midino>0x0B</midino><options><script-binding/></options></control>
+            <control><key>VCI400.channelB.hotcue6Button.input</key><status>0x93</status><midino>0x0C</midino><options><script-binding/></options></control>
+            <control><key>VCI400.channelB.hotcue7Button.input</key><status>0x93</status><midino>0x0D</midino><options><script-binding/></options></control>
+            <control><key>VCI400.channelB.hotcue8Button.input</key><status>0x93</status><midino>0x0E</midino><options><script-binding/></options></control>
+            <control><key>VCI400.channelC.hotcue1Button.input</key><status>0x94</status><midino>0x07</midino><options><script-binding/></options></control>
+            <control><key>VCI400.channelC.hotcue2Button.input</key><status>0x94</status><midino>0x08</midino><options><script-binding/></options></control>
+            <control><key>VCI400.channelC.hotcue3Button.input</key><status>0x94</status><midino>0x09</midino><options><script-binding/></options></control>
+            <control><key>VCI400.channelC.hotcue4Button.input</key><status>0x94</status><midino>0x0A</midino><options><script-binding/></options></control>
+            <control><key>VCI400.channelC.hotcue5Button.input</key><status>0x94</status><midino>0x0B</midino><options><script-binding/></options></control>
+            <control><key>VCI400.channelC.hotcue6Button.input</key><status>0x94</status><midino>0x0C</midino><options><script-binding/></options></control>
+            <control><key>VCI400.channelC.hotcue7Button.input</key><status>0x94</status><midino>0x0D</midino><options><script-binding/></options></control>
+            <control><key>VCI400.channelC.hotcue8Button.input</key><status>0x94</status><midino>0x0E</midino><options><script-binding/></options></control>
+            <control><key>VCI400.channelD.hotcue1Button.input</key><status>0x95</status><midino>0x07</midino><options><script-binding/></options></control>
+            <control><key>VCI400.channelD.hotcue2Button.input</key><status>0x95</status><midino>0x08</midino><options><script-binding/></options></control>
+            <control><key>VCI400.channelD.hotcue3Button.input</key><status>0x95</status><midino>0x09</midino><options><script-binding/></options></control>
+            <control><key>VCI400.channelD.hotcue4Button.input</key><status>0x95</status><midino>0x0A</midino><options><script-binding/></options></control>
+            <control><key>VCI400.channelD.hotcue5Button.input</key><status>0x95</status><midino>0x0B</midino><options><script-binding/></options></control>
+            <control><key>VCI400.channelD.hotcue6Button.input</key><status>0x95</status><midino>0x0C</midino><options><script-binding/></options></control>
+            <control><key>VCI400.channelD.hotcue7Button.input</key><status>0x95</status><midino>0x0D</midino><options><script-binding/></options></control>
+            <control><key>VCI400.channelD.hotcue8Button.input</key><status>0x95</status><midino>0x0E</midino><options><script-binding/></options></control>
+            <!-- vinyl handling -->
+            <control><key>VCI400.channelA.wheelTouch</key><status>0x92</status><midino>0x27</midino><options><script-binding/></options></control>
+            <control><key>VCI400.channelB.wheelTouch</key><status>0x93</status><midino>0x27</midino><options><script-binding/></options></control>
+            <control><key>VCI400.channelC.wheelTouch</key><status>0x94</status><midino>0x27</midino><options><script-binding/></options></control>
+            <control><key>VCI400.channelD.wheelTouch</key><status>0x95</status><midino>0x27</midino><options><script-binding/></options></control>
+            <control><key>VCI400.channelA.wheelMove</key><status>0xB2</status><midino>0x13</midino><options><script-binding/></options></control>
+            <control><key>VCI400.channelB.wheelMove</key><status>0xB3</status><midino>0x13</midino><options><script-binding/></options></control>
+            <control><key>VCI400.channelC.wheelMove</key><status>0xB4</status><midino>0x13</midino><options><script-binding/></options></control>
+            <control><key>VCI400.channelD.wheelMove</key><status>0xB5</status><midino>0x13</midino><options><script-binding/></options></control>
+            
+            <control><key>VCI400.channelA.vinylButton</key><status>0x92</status><midino>0x06</midino><options><script-binding/></options></control>
+            <control><key>VCI400.channelB.vinylButton</key><status>0x93</status><midino>0x06</midino><options><script-binding/></options></control>
+            <control><key>VCI400.channelC.vinylButton</key><status>0x94</status><midino>0x06</midino><options><script-binding/></options></control>
+            <control><key>VCI400.channelD.vinylButton</key><status>0x95</status><midino>0x06</midino><options><script-binding/></options></control>
+
+            <!-- transport knob -->
+            <control><key>VCI400.channelA.transportKnobPress</key><status>0x92</status><midino>0x14</midino><options><script-binding/></options></control>
+            <control><key>VCI400.channelB.transportKnobPress</key><status>0x93</status><midino>0x14</midino><options><script-binding/></options></control>
+            <control><key>VCI400.channelC.transportKnobPress</key><status>0x94</status><midino>0x14</midino><options><script-binding/></options></control>
+            <control><key>VCI400.channelD.transportKnobPress</key><status>0x95</status><midino>0x14</midino><options><script-binding/></options></control>
+            <control><key>VCI400.channelA.transportKnobTwist</key><status>0xB2</status><midino>0x06</midino><options><script-binding/></options></control>
+            <control><key>VCI400.channelB.transportKnobTwist</key><status>0xB3</status><midino>0x06</midino><options><script-binding/></options></control>
+            <control><key>VCI400.channelC.transportKnobTwist</key><status>0xB4</status><midino>0x06</midino><options><script-binding/></options></control>
+            <control><key>VCI400.channelD.transportKnobTwist</key><status>0xB5</status><midino>0x06</midino><options><script-binding/></options></control>
+
+            <!-- loopKnob -->
+            <control><key>VCI400.channelA.loopKnobPress</key><status>0x92</status><midino>0x11</midino><options><script-binding/></options></control>
+            <control><key>VCI400.channelB.loopKnobPress</key><status>0x93</status><midino>0x11</midino><options><script-binding/></options></control>
+            <control><key>VCI400.channelC.loopKnobPress</key><status>0x94</status><midino>0x11</midino><options><script-binding/></options></control>
+            <control><key>VCI400.channelD.loopKnobPress</key><status>0x95</status><midino>0x11</midino><options><script-binding/></options></control>
+            <control><key>VCI400.channelA.loopKnobTwist</key><status>0xB2</status><midino>0x05</midino><options><script-binding/></options></control>
+            <control><key>VCI400.channelB.loopKnobTwist</key><status>0xB3</status><midino>0x05</midino><options><script-binding/></options></control>
+            <control><key>VCI400.channelC.loopKnobTwist</key><status>0xB4</status><midino>0x05</midino><options><script-binding/></options></control>
+            <control><key>VCI400.channelD.loopKnobTwist</key><status>0xB5</status><midino>0x05</midino><options><script-binding/></options></control>
+
+            <!-- Effects Racks -->
+
+            <!-- Left side -->
+            <control><group>[EffectRack1_EffectUnit1]</group><key>prev_chain</key><status>0x9C</status><midino>0x08</midino></control>
+            <control><group>[EffectRack1_EffectUnit1]</group><key>next_chain</key><status>0x9C</status><midino>0x09</midino></control>
+            <control><key>VCI400.leftEffectRack.knob1</key><status>0xBC</status><midino>0x01</midino><options><script-binding/></options></control>
+            <control><key>VCI400.leftEffectRack.knob2</key><status>0xBC</status><midino>0x02</midino><options><script-binding/></options></control>
+            <control><key>VCI400.leftEffectRack.knob3</key><status>0xBC</status><midino>0x03</midino><options><script-binding/></options></control>
+            <control><key>VCI400.leftEffectRack.dryWetKnob</key><status>0xBC</status><midino>0x04</midino><options><script-binding/></options></control>
+            <control><group>[EffectRack1_EffectUnit1_Effect1]</group><key>enabled</key><status>0x9C</status><midino>0x01</midino></control>
+            <control><group>[EffectRack1_EffectUnit1_Effect2]</group><key>enabled</key><status>0x9C</status><midino>0x02</midino></control>
+            <control><group>[EffectRack1_EffectUnit1_Effect3]</group><key>enabled</key><status>0x9C</status><midino>0x03</midino></control>
+            <control><group>[EffectRack1_EffectUnit1]</group><key>group_[Master]_enable</key><status>0x9C</status><midino>0x04</midino></control>
+            <!-- Right side -->
+            <control><group>[EffectRack1_EffectUnit2]</group><key>prev_chain</key><status>0x9D</status><midino>0x08</midino></control>
+            <control><group>[EffectRack1_EffectUnit2]</group><key>next_chain</key><status>0x9D</status><midino>0x09</midino></control>
+            <control><key>VCI400.rightEffectRack.dryWetKnob     </key><status>0xBD</status><midino>0x01</midino><options><script-binding/></options></control>
+            <control><key>VCI400.rightEffectRack.reverbKnob     </key><status>0xBD</status><midino>0x02</midino><options><script-binding/></options></control>
+            <control><key>VCI400.rightEffectRack.echoKnob       </key><status>0xBD</status><midino>0x03</midino><options><script-binding/></options></control>
+            <control><key>VCI400.rightEffectRack.echoTimeEncoder</key><status>0xBD</status><midino>0x04</midino><options><script-binding/></options></control>
+            <control><group>[EffectRack1_EffectUnit2]</group><key>group_[Master]_enable</key><status>0x9D</status><midino>0x01</midino></control>
+            <control><group>[EffectRack1_EffectUnit2_Effect1]</group><key>enabled</key><status>0x9D</status><midino>0x02</midino></control>
+            <control><group>[EffectRack1_EffectUnit2_Effect2]</group><key>enabled</key><status>0x9D</status><midino>0x03</midino></control>
+            <control><key>VCI400.rightEffectRack.echoPingPongToggle</key><status>0x9D</status><midino>0x04</midino><options><script-binding/></options></control>
+            
+        </controls>
+        <outputs>
+            <!-- pfl LEDS -->
+            <output><group>[Channel1]</group><key>pfl</key><status>0x92</status><midino>0x05</midino><minimum>0.5</minimum></output>
+            <output><group>[Channel2]</group><key>pfl</key><status>0x93</status><midino>0x05</midino><minimum>0.5</minimum></output>
+            <output><group>[Channel3]</group><key>pfl</key><status>0x94</status><midino>0x05</midino><minimum>0.5</minimum></output>
+            <output><group>[Channel4]</group><key>pfl</key><status>0x95</status><midino>0x05</midino><minimum>0.5</minimum></output>
+            <!-- FX 1 / 2 LEDS -->
+            <output><group>[EffectRack1_EffectUnit1]</group><key>group_[Channel1]_enable</key><status>0x92</status><midino>0x03</midino><minimum>0.5</minimum></output>
+            <output><group>[EffectRack1_EffectUnit2]</group><key>group_[Channel1]_enable</key><status>0x92</status><midino>0x04</midino><minimum>0.5</minimum></output>
+            <output><group>[EffectRack1_EffectUnit1]</group><key>group_[Channel2]_enable</key><status>0x93</status><midino>0x03</midino><minimum>0.5</minimum></output>
+            <output><group>[EffectRack1_EffectUnit2]</group><key>group_[Channel2]_enable</key><status>0x93</status><midino>0x04</midino><minimum>0.5</minimum></output>
+            <output><group>[EffectRack1_EffectUnit1]</group><key>group_[Channel3]_enable</key><status>0x94</status><midino>0x03</midino><minimum>0.5</minimum></output>
+            <output><group>[EffectRack1_EffectUnit2]</group><key>group_[Channel3]_enable</key><status>0x94</status><midino>0x04</midino><minimum>0.5</minimum></output>
+            <output><group>[EffectRack1_EffectUnit1]</group><key>group_[Channel4]_enable</key><status>0x95</status><midino>0x03</midino><minimum>0.5</minimum></output>
+            <output><group>[EffectRack1_EffectUnit2]</group><key>group_[Channel4]_enable</key><status>0x95</status><midino>0x04</midino><minimum>0.5</minimum></output>
+            <!-- Effect toggle LEDS -->
+            <output><group>[EffectRack1_EffectUnit1_Effect1]</group><key>enabled</key><status>0x9C</status><midino>0x01</midino><minimum>0.5</minimum></output>
+            <output><group>[EffectRack1_EffectUnit1_Effect2]</group><key>enabled</key><status>0x9C</status><midino>0x02</midino><minimum>0.5</minimum></output>
+            <output><group>[EffectRack1_EffectUnit1_Effect3]</group><key>enabled</key><status>0x9C</status><midino>0x03</midino><minimum>0.5</minimum></output>
+            <output><group>[EffectRack1_EffectUnit1]</group><key>group_[Master]_enable</key><status>0x9C</status><midino>0x04</midino><minimum>0.5</minimum></output>
+            <output><group>[EffectRack1_EffectUnit2]</group><key>group_[Master]_enable</key><status>0x9D</status><midino>0x01</midino><minimum>0.5</minimum></output>
+            <output><group>[EffectRack1_EffectUnit2_Effect1]</group><key>enabled</key><status>0x9D</status><midino>0x02</midino><minimum>0.5</minimum></output>
+            <output><group>[EffectRack1_EffectUnit2_Effect2]</group><key>enabled</key><status>0x9D</status><midino>0x03</midino><minimum>0.5</minimum></output>
+            
+        </outputs>
+    </controller>
+</MixxxControllerPreset>
