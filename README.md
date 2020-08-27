@@ -59,7 +59,10 @@ Turquise & Green: Effects
 Gold
 - 13
   - rotate: select track in library
-  - shift + rotate: select playlist
+  - click: load track into next free deck
+  - shift + click: switch to playlist selection
+    - rotate: switch through playlists
+    - click: focus back on track selection in playlist
 - 14: select waveform zoom
 - 15:
   - top buttons: set beatgrid to cursor (left/right deck)
