@@ -12,7 +12,10 @@ what the buttons are labeled for.  This means the central controls for
 individual channels: loading and syncing tracks, fading in and out,
 the filter knob and the individual low/mid/high filters etc.
 
-The other buttons are described below.
+The other buttons are described below.  All 4 decks can be controlled
+with the deck select switch.  If the alternate (C/D) deck is selected,
+all individual deck buttons are controlling the alternate deck
+(transport and loop controls, play and pause).
 
 <p align="center">
   <img width="80%" src="controller.png"/>
@@ -28,8 +31,8 @@ Pink/Purple: Loop Controls
 - 6: deactivate loop
 - 7
   - rotate: move loop region
-  - press + rotate: halve/double loop region
-  - shift + rotate: ...
+  - press + rotate: halve/double loop region size
+  - shift + rotate: adjust loop region size by 1
 
 Blue: Transport Controls
 - 8: Cue buttons 1 to 8. 
@@ -65,3 +68,9 @@ Gold
 Drop the files `Vestax-VCI-400_alternative-scripts.js` and `
 Vestax-VCI-400_alternative.midi.xml` in your controller script
 directory.  On linux this is `~/.mixxx/controllers`.
+
+## Effects Setup
+
+The effect controls are mapped to specific effects. In the second
+effects rack the first effect should be `Reverb` and the second should
+be `Echo`.
