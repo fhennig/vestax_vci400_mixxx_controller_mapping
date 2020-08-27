@@ -5,6 +5,8 @@ the default setting, this controller has more mappings for loop
 control (loop in/out buttons, adjustable loop sizes), a reworked
 transport knob and controls for setting the beatgrid.
 
+The mapping uses the Mixxx 2.0 MIDI mapping controls.
+
 ## Controls
 
 The main controls are identical to the default mapping, identical to
