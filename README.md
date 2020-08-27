@@ -1,5 +1,19 @@
 # Vestax VCI 400 Mixxx MIDI Controller Mapping
 
+A MIDI mapping for the Vestax-VCI 400 DJ controller.  In contrast to
+the default setting, this controller has more mappings for loop
+control (loop in/out buttons, adjustable loop sizes), a reworked
+transport knob and controls for setting the beatgrid.
+
+## Controls
+
+The main controls are identical to the default mapping, identical to
+what the buttons are labeled for.  This means the central controls for
+individual channels: loading and syncing tracks, fading in and out,
+the filter knob and the individual low/mid/high filters etc.
+
+The other buttons are described below.
+
 <p align="center">
   <img width="80%" src="controller.png"/>
 </p>
@@ -45,3 +59,9 @@ Gold
 - 15:
   - top buttons: set beatgrid to cursor (left/right deck)
   - bottom buttons: sync beatgrid to other deck (left/right deck)
+
+## Installation
+
+Drop the files `Vestax-VCI-400_alternative-scripts.js` and `
+Vestax-VCI-400_alternative.midi.xml` in your controller script
+directory.  On linux this is `~/.mixxx/controllers`.
