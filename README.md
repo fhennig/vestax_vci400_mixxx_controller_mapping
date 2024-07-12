@@ -1,3 +1,6 @@
+> [!NOTE]
+> I do not own this controller anymore, I'm not going to work on the controller mapping anymore.
+
 # Vestax VCI 400 Mixxx MIDI Controller Mapping
 
 A MIDI mapping for the Vestax-VCI 400 DJ controller.  In contrast to
